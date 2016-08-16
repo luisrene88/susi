@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+{% load static from staticfiles %}
+{% block subtitle %}
+/ Promociones
+{% endblock subtitle %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'owl-carousel/owl.carousel.css' %}">
+<link rel="stylesheet" href="{% static 'owl-carousel/owl.theme.css' %}">
+{% endblock extracss %}
+{% block content %}
+
+
+<div class="promo-presentacion">
+
+
+{% if OWL %}
+<div id="slidePromo" class="ed-container owl-carousel">
+ {% for promocion in promociones %}
+ 	<div class="ed-item promo-img {{promocion.alineamientox}} {{promocion.alineamientoy}}" style="background-image:url({{promocion.imagen.url}});">
+ 		<div class="promo-texto justify tablet-35">
+ 		<h2>{{promocion.nombre}}</h2>
+ 		<span>{{promocion.descripcion}}</span>
+ 		{% if promocion.archivo %}
+ 		    <a class="button btn-contrato" href="{{promocion.archivo.url}}" title="promocion">Promocion</a>
+ 		{% endif %}
+ 		</div>
+ 	</div>
+ 	
+ {% endfor %}
+ </div>    
+{% else %}
+<div class="ed-container">
+	
+
+	{% for promocion in promociones %}
+ 	<div class="ed-item justify">
+ 		{% if promocion.imagen %}
+	 	    <div class="tablet-30">
+	 			<img src="{{promocion.imagen.url}}" alt="">	
+	 		</div>
+	 	
+ 		{% endif %}
+ 		
+ 		
+ 		<div class="promo-texto tablet-65">
+ 		<h2>{{promocion.nombre}}</h2>
+ 		<span>{{promocion.descripcion}}</span>
+ 		{% if promocion.archivo %}
+ 		    <a class="button btn-contrato" href="{{promocion.archivo.url}}" title="promocion">Promocion</a>
+ 		
+ 		{% endif %}
+ 		</div>
+ 	</div>
+ 	
+ 	{% endfor %}    
+</div>
+{% endif %}
+
+ 	
+
+	
+</div>
+
+
+{% endblock content %}
+{% block extrajs %}
+<script src="{% static 'owl-carousel/owl.carousel.min.js' %}" type="text/javascript"></script>
+{% if OWL %}
+    
+<script src="{% static 'viewjs/promociones.js' %}" type="text/javascript"></script>
+{% endif %}
+
+{% endblock extrajs %}

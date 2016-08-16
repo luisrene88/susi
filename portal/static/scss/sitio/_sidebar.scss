@@ -1,0 +1,119 @@
+.sidebar{
+	display:block;
+	position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 240px;
+	&.ed-menu.nav-bar{
+	background-color: $template-nav-background;
+	color: $template-color-text;
+	border-radius : 5px;
+	//width:250px;
+	& li > a{
+		color: $template-color-text;
+		&:hover{
+			@extend .active;
+		}	
+	}
+	& ul{
+	background-color: $template-nav-background;
+	display:none;
+
+	position : relative;
+		& li{
+			background-color: $template-grid-color;
+			
+			& a{
+				color: $template-color-text;	
+			}
+		}
+	}
+	@include hasta (tablet){
+		position: fixed ;
+		top: 9rem;
+		z-index: 20;
+		background : red;
+		height: 100%;
+		a{
+			padding-left : 1.5em;
+			line-height: 3;
+		}
+	}
+}
+}
+.content{
+  display:flex;
+  //flex-wrap: wrap;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  flex-direction: row;
+  & .main-content{
+	display:flex;
+	width: 100%;
+	@include hasta(tablet){
+			width:100%;
+		}
+	}
+  @include hasta(tablet){
+		flex-wrap: wrap;
+	}
+  //width: 100%;
+}
+
+.side{
+	//width: 20%;
+	//display:none;
+	@include hasta(tablet){
+		display:none;
+	}
+}
+#navegacion{
+	width:80%;
+	& option{
+	display:none;
+	}
+	@include hasta(movil){
+		width: 100%;
+	}
+}
+.hide-selected > li.k-state-selected{
+    display: none;
+}
+#navegacion > .k-list-scroller{
+	//display:none;
+	z-index:-1;
+	height: 0;
+}
+div.k-list-container{
+	display:none;
+	z-index:-1;
+	& ul{
+		//display:none;
+	}
+}
+div.k-animation-container{
+	display:none;
+	z-index:-1;
+}
+
+.k-popup.k-list-container {
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    padding: 0px; 
+    border-width: 0px; 
+    border-style: transparent;
+}
+
+.k-popup {
+    border-style: transparent; 
+    border-width: 0px; 
+}
+
+.k-multiselect .k-button {
+    @extend .active;
+    &:hover{
+    	@extend .active;
+    }
+}

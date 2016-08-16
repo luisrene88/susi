@@ -1,0 +1,9 @@
+{% load i18n %} 
+<form action="" method="post">{% csrf_token %}
+    <p> {% blocktrans %}
+        Are you sure you want to delete
+    {% endblocktrans %}   
+    {{ object.nombre }}"?</p>
+    
+<input type="submit" value="Confirm" />
+</form>

@@ -1,0 +1,74 @@
+
+
+.sld{
+	//background-color:red;
+	border-radius: 15px;
+	height: auto;
+}
+
+#slideMain div>img{
+	@extend .sld
+}
+.susi{
+	font-size:2em;
+	font-weight:bold;
+}
+.anexo{
+	font-size:1.5em;
+	font-weight:normal;	
+}
+.app-resaltar{
+	font-weight: bold;
+}
+.justify{
+	text-align: justify;
+}
+
+.owl-page.active{
+	border-radius :15px;
+}
+.icon-cerrar{
+	color:red;
+	font-size: 1.5em;
+}
+.icon-aceptar{
+	color:green;
+	font-size: 1.5em;
+}
+.centrar-td{
+	text-align: center;
+
+}
+.basico{
+	background-color: #0087c9;
+	border-radius: 15px;
+	line-height : 2em;
+	color: white;
+	text-transform: uppercase;
+}
+.plus{
+	background-color:#00539d;
+	border-radius: 15px;
+	line-height : 2em;
+	color: white;
+	text-transform: uppercase;
+}
+.row-color{
+	background-color: #E4E8E3;
+
+}
+table{
+	font-weight: bold;
+}
+.btn-contrato{
+	background-color:$template-color;
+	color:$template-hover-text;
+	border-radius: 15px;
+}
+.btn-contrato:hover{
+	@extend .btn-contrato
+}
+.button{
+	margin-bottom:0em;
+}
+

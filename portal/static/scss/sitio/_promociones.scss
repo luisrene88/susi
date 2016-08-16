@@ -1,0 +1,8 @@
+.promo-img{
+	background-repeat : no-repeat;
+	background-size : 100%;
+	height:auto;
+	@include desde(tablet){
+		 height:550px;
+	}
+}

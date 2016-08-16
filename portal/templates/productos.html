@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% load compress %}
+{% load static from staticfiles %}
+{% block subtitle %}
+	/ Productos
+{% endblock subtitle %}
+
+{% block extracss %}
+    
+{% endblock extracss %}
+	
+{% block content %}
+    
+    <div class="ed-container search">
+    	{% comment "optional note" %}
+    		{% if user.is_authenticated %}
+	    <div class="ed-item tablet-20" >
+	    	<button id="botton_add" class="ed-button" type="text">Agregar</button>
+	    </div>
+	    {% endif %}
+    
+    	{% endcomment %}
+
+		<div class="ed-item tablet-80 main-end cross-center">
+			  <input id="search" type="text" style="width:80%;" class="k-textbox"  placeholder="Buscar por..."/>
+		      <span >
+		        <button class="k-button" id="btngo" type="button">Go!</button>
+		      </span>
+		</div>
+	</div>	
+    <div class="ed-container navarticulos" >
+      	<label for="categorias" class="k-button icon-menu espacio"><span>Categorias</span></label>
+      	<input type="text" id="navegacion" style="width:80%"/>
+    </div>
+
+    <div class="content">
+    		<div id="sidebar" class="side">
+    		</div>
+    
+			<div id="contenedor" class="main-content">
+    
+    		</div>
+    </div>
+	<div class="ed-container">
+    	<div id="pager" class="ed-item"></div>	
+    </div>
+    <div id="ventana">
+    	
+    </div>
+{% endblock content %}
+{% block extrajs %}
+	
+	<script type="text/javascript" src="https://fb.me/react-15.2.1.min.js"></script>
+	<script type="text/javascript" src="https://fb.me/react-dom-15.2.1.min.js"></script>
+	{% compress js %}
+	<script src="{% static 'viewjs/sidebar.js' %}" type="text/javascript"></script>
+	<script src="{% static 'viewjs/productos.js' %}" type="text/javascript"></script>
+	{% endcompress %}
+{% endblock extrajs %}

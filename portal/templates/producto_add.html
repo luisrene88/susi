@@ -1,0 +1,174 @@
+{% load static from staticfiles %}
+
+{% load i18n admin_urls static admin_modify %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Producto</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href='{% static "kendo/css/kendo.common.min.css" %}'>
+	<link rel="stylesheet" type="text/css" href='{% static "kendo/css/kendo.bootstrap.min.css" %}'>
+	<link rel="stylesheet" type="text/css" href="{% static "css/producto_add.css" %}" />
+
+	
+</head>
+<body>
+
+		<div id="content-main" class="container">
+
+		
+			<ul class="nav nav-tabs">
+				<li class="active">
+					<a href="#p1" data-toggle="tab">Producto</a>
+				</li>
+				<li >
+					<a href="#p2"  data-toggle="tab">Especificacion</a>
+				</li>
+				<li >
+					<a href="#p3"  data-toggle="tab">Imagenes</a>
+				</li>
+			</ul>
+		
+
+			 
+
+		
+
+	        <form action="." enctype="multipart/form-data" class="form-inline" method="post">
+	            {% csrf_token %}
+
+	            <div class="tab-content">
+
+	            <div class="tab-pane active" id="p1">
+	            	
+	            <fieldset class="module">
+	            	
+	            
+	            <legend>Producto</legend>
+	            <div class="fieldlist main-form">
+	                {{ form.as_ul }}
+	            </div>
+	            </fieldset>
+	            </div>
+
+	            <div id="p2" class="_inline-group tab-pane">
+	            	
+	            <fieldset class="module">
+	                <legend>Especificacion</legend>
+	                {{ propiedades_form.management_form }}
+	                {{ propiedades_form.non_form_errors }}
+	                <ul class="fieldlist">
+	            	
+	                {% for form in propiedades_form %}
+	                    <li class="form-row">
+	                    {{ form.id }}
+	                    <div class="form-row inline {{ propiedades_form.prefix }}">
+	                        {{ form.propiedad.errors }}
+	                        {{ form.propiedad.label_tag }}
+	                        {{ form.propiedad }}
+	                        {{ form.DELETE }}
+	                    </div>
+	                    {% comment %}
+	                    	{% if propiedades_form.can_delete %}
+	                    	     <span>Quitar </span>{{ form.DELETE }}
+	                    	{% endif %}    
+	                    {% endcomment %}
+	                    </li>
+	                {% endfor %}
+	                </ul>
+	            </fieldset>
+	            
+	            </div>
+
+
+	            <div id="p3" class="_inline-group tab-pane active">
+	            	
+	            <fieldset class="module ">
+	                <legend>Imagenes</legend>
+	                {{ imagenes_form.management_form }}
+	                {{ imagenes_form.non_form_errors }}
+	                <ul class="fieldlist">
+	                {% for form in imagenes_form %}
+	                	<li>
+	                    {{ form.id }}
+	                    <div class=" form-row inline {{ imagenes_form.prefix }}">
+	                        {{ form.imagen.errors }}
+	                        {{ form.imagen.label_tag }}
+	                        {{ form.imagen }}
+	                       	{{ form.DELETE }}
+	                       
+	                    </div>
+	                    {% comment "optional note" %}
+	                    	{% if imagenes_form.can_delete %}
+	                    	     <span>Quitar </span>{{ form.DELETE }}
+	                    	{% endif %}    
+	                    {% endcomment %}
+                    	
+	                    </li>
+	                   
+	                {% endfor %}
+
+	                </ul>
+	            </fieldset>
+
+	            </div>
+	            </div>
+	            <input type="submit" value="Guardar" class="submit k-button k-primary" />
+	        </form>
+
+	        
+	    </div>
+
+
+</body>
+<footer>
+	<script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+    <script src="{% static 'js/jquery.formset.js' %} "></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'kendo/js/kendo.ui.core.min.js' %}"></script>
+
+    <script type="text/javascript">
+        $(function() {
+
+
+            $("#p2").addClass('active');
+            $("#p3").addClass('active');
+
+            $(".inline.{{ propiedades_form.prefix }}").formset({
+                prefix: "{{ propiedades_form.prefix }}",
+                addText: 'Agregar nueva especificacion',
+                deleteText: 'Quitar',
+                added: function(){
+                	$('input[type="text"]').addClass('k-textbox');
+                }
+            })
+            $(".inline.{{ imagenes_form.prefix }}").formset({
+                prefix: "{{ imagenes_form.prefix }}",
+                addText:'Agregar nueva imagen',
+                deleteText: 'Quitar',
+               
+            })
+
+            $(".add-row").addClass("k-button");
+            $(".remove-row").addClass("k-button");
+
+            $("#p2").removeClass('active');
+            $("#p3").removeClass('active');
+
+            $('input[type="text"]').addClass('k-textbox');
+
+        })
+
+
+
+    </script>
+
+</footer>
+</html>

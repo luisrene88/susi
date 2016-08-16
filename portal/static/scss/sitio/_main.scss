@@ -1,0 +1,100 @@
+// $template-color : green;
+// $template-color-text: green;
+// $template-hover-text: white;
+// $template-nav-background : white;
+
+.active{
+	background-color: $template-color;
+	//border-radius: 5px;
+	color: $template-hover-text;
+}
+#menu-section{
+	background-color: $template-nav-background;
+	border-radius: 0 0 10px 10px;
+	color: $template-color-text;
+	//margin-top: 10px;
+	margin-bottom: 10px;
+	@include desde(tablet){
+		border-radius : 10px;
+	}
+	& li{
+		text-transform: uppercase;	
+		&  > a:hover{
+			@extend .active;
+		}
+	}
+	& a{
+		color: $template-color-text;
+		&:hover{
+			color: blue;
+		}
+	}
+
+}
+
+.k-pager-wrap{
+	background-color: transparent;
+	
+	color:black;
+}
+.k-state-selected{
+	background-color : $template-color;
+	border-color : $template-color;
+}
+
+.k-link:link{
+	color: $template-color;
+
+}
+#mostrar-menu{
+	background-color:$template-color;
+	color:$template_hover_text;
+	line-height: 2em;
+	font-size:1.5em;
+	padding: 10px;
+	border-radius:5px;
+	@include desde(tablet){
+		display: none;
+	}
+
+}
+.ed-menu{
+	@include hasta(tablet){
+		display:none;
+	}
+	& ul{
+		background-color:$template-nav-background;
+		z-index: 1000;
+		
+	}
+	& ul:hover li{
+		display: block;
+		position: relative;
+		top: 100%;
+		//background-color:red;
+	}
+}
+.info-susi{
+	@include hasta(tablet){
+		display: none;
+	}
+}
+.despreocupate{
+	
+	width:100%;
+	background:linear-gradient(
+		0deg,
+		$template-nav-background 50%,
+		transparent 50%
+	);
+	& > h2{
+		border-radius: 25px;
+		background-color:white;
+		padding-left: 15px;
+		padding-right:15px;
+	}
+}
+.footer{
+	background-color: $template-color;//#232323;//#E4E8E3;
+	color: $template-hover-text;
+}

@@ -1,0 +1,160 @@
+{% extends "layout.html" %}
+{% load compress %}
+{% load static from staticfiles %}
+{% block subtitle %}
+/ Home
+{% endblock subtitle %}
+
+{% block extracss %}
+{% compress css %}
+<link rel="stylesheet" type="text/css" href="{% static 'owl-carousel/owl.carousel.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'owl-carousel/owl.theme.css' %}">
+{% endcompress %}
+{% endblock extracss %}
+
+{% block content %}
+<div class="ed-container" style="margin-bottom:15px;">
+	<div class="ed-item main-center cross-end">
+		<span class="susi">SUSI</span> &nbsp <span class="anexo">te ofrece sus servicios </span>
+	</div>    	
+</div>  
+<div id="slideMain" class="ed-container owl-carousel">
+	<div class="ed-item sld">
+		<img class="lazyOwl" data-src="{% static 'img/sld/ac.jpg' %}" alt="">
+		<span class="main-center cross-end">Aire Acondicionado</span>
+	</div>
+	<div class="ed-item sld ">
+		<img class="lazyOwl" data-src="{% static 'img/sld/autos.jpg' %}" alt="">
+		<span class="main-center cross-end">Servicios Automotrices</span>
+	</div>
+	<div class="ed-item sld ">
+		<img class="lazyOwl" data-src="{% static 'img/sld/caja_valores.jpg' %}" alt="">
+		<span class="main-center cross-end">Cajas de Valores</span>
+	</div>
+	<div class="ed-item sld ">
+		<img class="lazyOwl" data-src="{% static 'img/sld/carpinteria.jpg' %}" alt="">
+		<span class="main-center cross-end">Carpinteria</span>
+	</div>
+	<div class="ed-item sld ">
+		<img class="lazyOwl" data-src="{% static 'img/sld/cerajeria.jpg' %}" alt="">
+		<span class="main-center cross-end">Cerrajeria</span>
+	</div>
+	<div class="ed-item sld ">
+		<img class="lazyOwl" data-src="{% static 'img/sld/construccion.jpg' %}" alt="">
+		<span class="main-center cross-end">Construccion y mantenimiento</span>
+	</div>
+	<div class="ed-item sld ">
+		<img class="lazyOwl" data-src="{% static 'img/sld/electricidad.jpg' %}" alt="">
+		<span class="main-center cross-end">Electricidad</span>
+	</div>
+	<div class="ed-item sld ">
+		<img class="lazyOwl" data-src="{% static 'img/sld/gas.jpg' %}" alt="">
+		<span class="main-center cross-end">Gas</span>
+	</div>
+	<div class="ed-item sld ">
+		<img class="lazyOwl" data-src="{% static 'img/sld/herreria.jpg' %}" alt="">
+		<span class="main-center cross-end">Herreria y Canceleria</span>
+	</div>
+	<div class="ed-item sld ">
+		<img class="lazyOwl" data-src="{% static 'img/sld/impermiable.jpg' %}" alt="">
+		<span class="main-center cross-end">Impermeabilización</span>
+	</div>
+	<div class="ed-item sld ">
+		<img class="lazyOwl" data-src="{% static 'img/sld/pintura.jpg' %}" alt="">
+		<span class="main-center cross-end">Pintura</span>
+	</div>
+	<div class="ed-item sld ">
+		<img class="lazyOwl" data-src="{% static 'img/sld/plomeria.jpg' %}" alt="">
+		<span class="main-center cross-end">Plomería</span>
+	</div>
+	<div class="ed-item sld ">
+		<img class="lazyOwl" data-src="{% static 'img/sld/tv.jpg' %}" alt="">
+		<span class="main-center cross-end">Television</span>
+	</div>
+	<div class="ed-item sld ">
+		<img class="lazyOwl" data-src="{% static 'img/sld/vidrieria.jpg' %}" alt="">
+		<span class="main-center cross-end">Vidrieria</span>
+	</div>
+</div>
+
+<div class="ed-container">
+	<div class="ed-item">
+		<h2 class="main-center">Membresia</h2>
+		<p class="main-center">Ofrecemos diferentes opciones de contratación para nuestros afiliados: &nbsp 
+			<span class="app-resaltar"> El Básico y El Plus.</span>
+		</p>
+		<br>  
+	</div>
+	<div class="ed-item tablet-30 left">
+		<p class="justify">
+			<span class="app-resaltar">Contrato básico:</span> Éste soluciona servicios básicos que usted necesita en su hogar: plomería, electricidad, gas, cerrajería, vidriería, carpintería, pintura, aire acondicionado, herrería y cancelería.
+		</p>
+	</div>
+	<div class="ed-item tablet-30 center">
+		<p class="justify"><span class="app-resaltar">Contrato Plus:</span> Además de lo que recibirá en el contrato básico, le ofrecemos servicios para su automóvil, soporte para TV y antenas, cajas de valores e impermeabilización.</p>
+	</div>
+	<div class="ed-item tablet-30 right">
+		<p class="justify"><span class="app-resaltar">No afiliados: </span>Atendemos cualquier necesidad que se presente en su casa y automóvil, comercio, industria, planteles educativos, oficinas, etc.</p>
+	</div>
+	<div class="ed-item">
+	<br>
+		<p class="justify"><span class="app-resaltar">Servicios adicionales: </span>
+			En ambos casos le ofrecemos al mejor precio servicios de fumigación, limpieza, mantenimiento de casa, patios y jardines; traslado de muebles, limpieza de alfombras, mantenimiento y reparación de equipo de computo, aparatos electrodomésticos, renta de mobiliario y equipo para fiestas y eventos. Brindamos asesoría, presupuesto, proyecto y de construcción y mantenimiento en cualquier tipo de obra.
+		</p>
+	</div>
+</div>
+<!-- seccion para los clientes-->
+<div class="ed-container">
+	<div class="ed-item main-center">
+		<h2>Nuestros Clientes</h2>
+	</div>
+</div>
+<div id="slideClientes" class="ed-container owl-carousel">
+	<div class="ed-item sld">
+		<img class="lazyOwl" data-src="{% static 'img/clientes/adess.jpg' %}" alt="">
+		
+	</div>
+	<div class="ed-item sld">
+		<img class="lazyOwl" data-src="{% static 'img/clientes/almacenadora_tijuana.jpg' %}" alt="">
+		
+	</div>
+	<div class="ed-item sld">
+		<img class="lazyOwl" data-src="{% static 'img/clientes/ambit.jpg' %}" alt="">
+		
+	</div>
+	<div class="ed-item sld">
+		<img class="lazyOwl" data-src="{% static 'img/clientes/cass.jpg' %}" alt="">
+		
+	</div>
+	<div class="ed-item sld">
+		<img class="lazyOwl" data-src="{% static 'img/clientes/CSI_logotipo.png' %}" style="height:130px" alt="">
+		
+	</div>
+	<div class="ed-item sld">
+		<img class="lazyOwl" data-src="{% static 'img/clientes/diez.jpg' %}" alt="">
+		
+	</div>
+	<div class="ed-item sld">
+		<img class="lazyOwl" data-src="{% static 'img/clientes/disfras.jpg' %}" style="height:130px" alt="">
+		
+	</div>
+	<div class="ed-item sld">
+		<img class="lazyOwl" data-src="{% static 'img/clientes/ecologicos.jpg' %}" alt="">
+		
+	</div>
+	<div class="ed-item sld">
+		<img class="lazyOwl" data-src="{% static 'img/clientes/eldorado.jpg' %}" alt="">
+		
+	</div>
+	
+</div>
+
+
+
+{% endblock content %}
+{% block extrajs %}
+{% compress js %}
+<script src="{% static 'owl-carousel/owl.carousel.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'viewjs/index.js' %}" type="text/javascript"></script>
+{% endcompress %}
+{% endblock extrajs %}

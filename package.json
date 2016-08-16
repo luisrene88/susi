@@ -1,0 +1,45 @@
+{
+  "name": "susi",
+  "version": "1.0.0",
+  "description": "none",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "imagen-compile" : "imagemin portal/static/img/*  --out-dir=build",
+    "img": "concurrently --kill-others \"npm run imagen-compile\" ",
+    "jsx-compile": "babel --presets react portal/static/viewjs/src --watch --out-dir portal/static/viewjs",
+    "css-compile": "node-sass --output-style compressed portal/static/scss -o portal/static/css",
+    "css-watch": "node-sass portal/static/scss -o portal/static/css --watch",
+    "browser-sync": "browser-sync start --files \"portal/static/css/*.css, portal/static/viewjs/*.js, portal/**/*.py, portal/templates/*.html\" --proxy 127.0.0.1:8000 --reload-delay=300 --reload-debounce=500",
+    "start": "concurrently --kill-others \"npm run css-watch\" \"npm run jsx-compile\" \"npm run browser-sync\" "
+  },
+  "author": "Luis Velazquez",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer-core": "^6.0.1",
+    "browser-sync": "^2.14.0",
+    "browserify": "^13.1.0",
+    "concurrently": "^2.2.0",
+    "del": "^2.2.1",
+    "gulp": "^3.9.1",
+    "gulp-if": "^2.0.1",
+    "gulp-imagemin": "^3.0.2",
+    "gulp-jshint": "^2.0.1",
+    "gulp-mocha": "^3.0.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-postcss": "^6.1.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "jshint": "^2.9.2",
+    "jshint-stylish": "^2.2.0",
+    "node-sass": "^3.8.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.7.0",
+    "yargs": "^4.8.1"
+  },
+  "dependencies": {
+    "react-burger-menu": "^1.10.2"
+  }
+}
